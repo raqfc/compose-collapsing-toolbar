@@ -23,7 +23,11 @@
 package me.onebone.toolbar
 
 import android.os.Bundle
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.ScrollableDefaults
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.mutableStateOf
@@ -33,12 +37,14 @@ import androidx.compose.runtime.saveable.SaverScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.ParentDataModifier
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.dp
 import kotlin.math.max
 
 @Stable
@@ -76,7 +82,6 @@ fun rememberCollapsingToolbarScaffoldState(
 }
 
 interface CollapsingToolbarScaffoldScope {
-	@ExperimentalToolbarApi
 	fun Modifier.align(alignment: Alignment): Modifier
 }
 
@@ -105,6 +110,13 @@ fun CollapsingToolbarScaffold(
 				modifier = toolbarModifier,
 				collapsingToolbarState = toolbarState
 			) {
+				Box(
+					modifier = Modifier
+						.background(Color.Red)
+						.fillMaxWidth()
+						.height(112.0.dp)
+						.pin()
+				)
 				toolbar()
 			}
 
@@ -181,7 +193,6 @@ fun CollapsingToolbarScaffold(
 }
 
 internal object CollapsingToolbarScaffoldScopeInstance: CollapsingToolbarScaffoldScope {
-	@ExperimentalToolbarApi
 	override fun Modifier.align(alignment: Alignment): Modifier =
 		this.then(ScaffoldChildAlignmentModifier(alignment))
 }

@@ -30,6 +30,8 @@ import androidx.compose.foundation.MutatePriority
 import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.foundation.gestures.ScrollScope
 import androidx.compose.foundation.gestures.ScrollableState
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -48,6 +50,7 @@ import androidx.compose.ui.layout.ParentDataModifier
 import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import kotlin.math.absoluteValue
 import kotlin.math.max
@@ -263,50 +266,75 @@ private class CollapsingToolbarMeasurePolicy(
 						val collapsed = strategy.whenCollapsed
 						val expanded = strategy.whenExpanded
 
-						val collapsedOffset = collapsed.align(
+						val collapsedOffset = collapsed.alignment.align(
 							size = IntSize(placeable.width, placeable.height),
 							space = IntSize(maxWidth, height),
 							layoutDirection = layoutDirection
 						)
 
-						val expandedOffset = expanded.align(
+						val expandedOffset = expanded.alignment.align(
 							size = IntSize(placeable.width, placeable.height),
 							space = IntSize(maxWidth, height),
 							layoutDirection = layoutDirection
 						)
 
 						val offset = collapsedOffset + (expandedOffset - collapsedOffset) * progress
+//						val padding = (collapsed.padding + expanded.padding) / 2
+//						progress -> 1 expandido
+//						PaddingValues(
+//							start =
+//							(collapsed.padding.calculateStartPadding(layoutDirection) * (1 - progress) + expanded.padding.calculateStartPadding(layoutDirection) * progress)
+//						)
+						val startPadding = (collapsed.startOffset.value * (1 - progress) + expanded.startOffset.value * progress)
+						placeable.place(offset.x + startPadding.toInt(), offset.y)
 
-						placeable.place(offset.x, offset.y)
 					}
 					is CollapsingToolbarParallaxData ->
 						placeable.placeRelative(
 							x = 0,
 							y = -((maxHeight - minHeight) * (1 - progress) * strategy.ratio).roundToInt()
 						)
+					is CollapsingToolbarPinData -> {
+						val pos = strategy.alignment.align(
+							size = IntSize(placeable.width, placeable.height),
+							space = IntSize(maxWidth, height),
+							layoutDirection = layoutDirection
+						)
+						placeable.placeRelative(pos.x, pos.y)
+					}
 					else -> placeable.placeRelative(0, 0)
 				}
 			}
 		}
 	}
 }
+//
+//fun PaddingValues.plus(other: Any): PaddingValues {
+//	if(other !is PaddingValues) return this
+//	return
+//}
 
 interface CollapsingToolbarScope {
 	fun Modifier.progress(listener: ProgressListener): Modifier
 
-	fun Modifier.road(whenCollapsed: Alignment, whenExpanded: Alignment): Modifier
+	fun Modifier.road(whenCollapsed: ViewConfiguration, whenExpanded: ViewConfiguration): Modifier
 
 	fun Modifier.parallax(ratio: Float = 0.2f): Modifier
 
-	fun Modifier.pin(): Modifier
+	fun Modifier.pin(alignment: Alignment = Alignment.TopStart): Modifier
 }
+
+data class ViewConfiguration(
+	val alignment: Alignment,
+	val startOffset: Dp
+)
 
 internal object CollapsingToolbarScopeInstance: CollapsingToolbarScope {
 	override fun Modifier.progress(listener: ProgressListener): Modifier {
 		return this.then(ProgressUpdateListenerModifier(listener))
 	}
 
-	override fun Modifier.road(whenCollapsed: Alignment, whenExpanded: Alignment): Modifier {
+	override fun Modifier.road(whenCollapsed: ViewConfiguration, whenExpanded: ViewConfiguration): Modifier {
 		return this.then(RoadModifier(whenCollapsed, whenExpanded))
 	}
 
@@ -314,14 +342,14 @@ internal object CollapsingToolbarScopeInstance: CollapsingToolbarScope {
 		return this.then(ParallaxModifier(ratio))
 	}
 
-	override fun Modifier.pin(): Modifier {
-		return this.then(PinModifier())
+	override fun Modifier.pin(alignment: Alignment): Modifier {
+		return this.then(PinModifier(alignment))
 	}
 }
 
 internal class RoadModifier(
-	private val whenCollapsed: Alignment,
-	private val whenExpanded: Alignment
+	private val whenCollapsed: ViewConfiguration,
+	private val whenExpanded: ViewConfiguration
 ): ParentDataModifier {
 	override fun Density.modifyParentData(parentData: Any?): Any {
 		return CollapsingToolbarRoadData(
@@ -339,9 +367,11 @@ internal class ParallaxModifier(
 	}
 }
 
-internal class PinModifier: ParentDataModifier {
+internal class PinModifier(
+	private val alignment: Alignment
+	): ParentDataModifier {
 	override fun Density.modifyParentData(parentData: Any?): Any {
-		return CollapsingToolbarPinData((parentData as? CollapsingToolbarData)?.progressListener)
+		return CollapsingToolbarPinData(alignment, (parentData as? CollapsingToolbarData)?.progressListener)
 	}
 }
 
@@ -366,12 +396,13 @@ internal class CollapsingToolbarProgressData(
 ): CollapsingToolbarData(progressListener)
 
 internal class CollapsingToolbarRoadData(
-	var whenCollapsed: Alignment,
-	var whenExpanded: Alignment,
+	var whenCollapsed: ViewConfiguration,
+	var whenExpanded: ViewConfiguration,
 	progressListener: ProgressListener? = null
 ): CollapsingToolbarData(progressListener)
 
 internal class CollapsingToolbarPinData(
+	var alignment: Alignment,
 	progressListener: ProgressListener? = null
 ): CollapsingToolbarData(progressListener)
 

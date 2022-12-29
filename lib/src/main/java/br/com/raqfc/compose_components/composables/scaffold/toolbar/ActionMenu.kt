@@ -1,10 +1,12 @@
+import android.util.Log
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -20,6 +22,7 @@ data class ActionItem(
     val icon: ImageVector? = null,
     val overflowMode: OverflowMode = OverflowMode.IF_NECESSARY,
     val doAction: () -> Unit,
+    val iconColor: Color? = null
 ) {
     // allow 'calling' the action like a function
     operator fun invoke() = doAction()
@@ -34,7 +37,7 @@ enum class OverflowMode {
 @Composable
 fun ActionMenu(
     items: List<ActionItem>,
-    viewWidth: Int, // includes overflow menu icon; may be overridden by NEVER_OVERFLOW
+    viewWidth: Float, // includes overflow menu icon; may be overridden by NEVER_OVERFLOW
     menuVisible: MutableState<Boolean> = remember { mutableStateOf(false) }
 ) {
     if (items.isEmpty()) {
@@ -49,14 +52,16 @@ fun ActionMenu(
         key(item.hashCode()) {
             val name = stringResource(item.nameRes)
             if (item.icon != null) {
-                IconButton(onClick = item.doAction) {
-                    Icon(item.icon, name)
+                IconButton(onClick = {
+                    item.doAction()
+                }) {
+                    Icon(imageVector = item.icon, contentDescription = "", tint = item.iconColor ?: MaterialTheme.colorScheme.onPrimary)
                 }
             } else {
                 TextButton(onClick = item.doAction) {
                     Text(
                         text = name,
-                        color = MaterialTheme.colors.onPrimary.copy(alpha = LocalContentAlpha.current),
+                        color = item.iconColor ?: MaterialTheme.colorScheme.onPrimary,
                     )
                 }
             }
@@ -73,14 +78,20 @@ fun ActionMenu(
         ) {
             for (item in overflowActions) {
                 key(item.hashCode()) {
-                    DropdownMenuItem(onClick = {
-                        menuVisible.value = false
-                        item.doAction() }) {
-                        val name = stringResource(id = item.nameRes)
-                        if(item.icon != null)
-                            Icon(modifier = Modifier.padding(end = 8.dp), imageVector = item.icon, contentDescription = name)
-                        Text(name)
-                    }
+                    DropdownMenuItem(
+                        text = { Text(stringResource(id = item.nameRes)) },
+                        leadingIcon = if (item.icon != null) {
+                            {
+                                Icon(
+                                    modifier = Modifier.padding(end = 8.dp),
+                                    imageVector = item.icon,
+                                    contentDescription = stringResource(id = item.nameRes)
+                                )
+                            }
+                        } else null,
+                        onClick = {
+                            menuVisible.value = false
+                            item.doAction() })
                 }
             }
         }
@@ -89,13 +100,13 @@ fun ActionMenu(
 
 private fun separateIntoIconAndOverflow(
     items: List<ActionItem>,
-    viewWidth: Int
+    viewWidth: Float
 ): Pair<List<ActionItem>, List<ActionItem>> {
     var (overflowCount, preferIconCount) = Pair(0, 0)
-
+    Log.e("separateIntoIconAndOverflow.viewWidth: ",viewWidth.toString())
     val iconActions = ArrayList<ActionItem>()
     val overflowActions = ArrayList<ActionItem>()
-    var usedWidth = 0
+    var usedWidth = 0f
 
     for (item in items) {
         when (item.overflowMode) {
@@ -105,11 +116,11 @@ private fun separateIntoIconAndOverflow(
         }
     }
 
-    fun calculateButtonWidth(hasIcon: Boolean): Int {
-        return if(hasIcon) 48 else 86
+    fun calculateButtonWidth(hasIcon: Boolean): Float {
+        return if(hasIcon) 148.0.dp.value else 86.dp.value
     }
 
-    fun availableWidth(): Int {
+    fun availableWidth(): Float {
         return viewWidth - usedWidth
     }
 
@@ -137,7 +148,7 @@ private fun separateIntoIconAndOverflow(
                 } else {
                     if(overflowCount == 0) {
                         overflowCount +=1
-                        usedWidth += calculateButtonWidth(false)
+                        usedWidth += calculateButtonWidth(true)
                     }
                     overflowActions.add(item)
                 }

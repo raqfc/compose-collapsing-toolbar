@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="empty_string"> </string>
+
+    <string name="default_error_title">Ops =(</string>
+    <string name="default_success_title">Sucesso!</string>
+    <string name="default_error_content">Ocorreu um erro inesperado</string>
+    <string name="default_loading">Carregando</string>
+
+
+</resources>

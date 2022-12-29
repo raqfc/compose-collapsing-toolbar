@@ -20,7 +20,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package br.com.raqfc.compose_components
+package br.com.raqfc.compose_components.composables.scaffold.toolbar
 
 import android.os.SystemClock
 import androidx.compose.ui.geometry.Offset

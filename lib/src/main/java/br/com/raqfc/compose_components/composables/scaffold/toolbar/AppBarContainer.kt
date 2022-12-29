@@ -20,7 +20,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package br.com.raqfc.compose_components
+package br.com.justworks.volan2.common.presentation.composables.scaffold.toolbar
 
 import androidx.compose.foundation.gestures.ScrollableDefaults
 import androidx.compose.runtime.Composable
@@ -30,23 +30,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.layout.Layout
-import androidx.compose.ui.layout.Measurable
-import androidx.compose.ui.layout.MeasurePolicy
-import androidx.compose.ui.layout.MeasureResult
-import androidx.compose.ui.layout.MeasureScope
-import androidx.compose.ui.layout.ParentDataModifier
-import androidx.compose.ui.layout.Placeable
+import androidx.compose.ui.layout.*
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Density
+import br.com.raqfc.compose_components.composables.scaffold.toolbar.CollapsingToolbarState
 import kotlin.math.max
-import kotlin.math.roundToInt
 
 @Deprecated(
 	"Use AppBarContainer for naming consistency",
 	replaceWith = ReplaceWith(
 		"AppBarContainer(modifier, scrollStrategy, collapsingToolbarState, content)",
-		"br.com.raqfc.compose_components"
+		"me.onebone.toolbar"
 	)
 )
 @Composable
@@ -68,7 +62,7 @@ fun AppbarContainer(
 	"AppBarContainer is replaced with CollapsingToolbarScaffold",
 	replaceWith = ReplaceWith(
 		"CollapsingToolbarScaffold",
-		"br.com.raqfc.compose_components"
+		"me.onebone.toolbar"
 	)
 )
 @Composable

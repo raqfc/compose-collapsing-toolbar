@@ -20,7 +20,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package me.onebone.toolbar
+package br.com.raqfc.compose_components
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -53,7 +53,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import me.onebone.toolbar.ui.theme.CollapsingToolbarTheme
+import br.com.raqfc.compose_components.ui.theme.CollapsingToolbarTheme
 
 class ParallaxActivity: ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {

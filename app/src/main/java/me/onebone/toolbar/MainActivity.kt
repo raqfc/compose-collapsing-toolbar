@@ -20,7 +20,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package me.onebone.toolbar
+package br.com.raqfc.compose_components
 
 import ActionItem
 import ActionMenu
@@ -55,7 +55,7 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import me.onebone.toolbar.ui.theme.CollapsingToolbarTheme
+import br.com.raqfc.compose_components.ui.theme.CollapsingToolbarTheme
 
 class MainActivity: ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {

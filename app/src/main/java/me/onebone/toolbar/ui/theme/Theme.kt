@@ -1,4 +1,4 @@
-package me.onebone.toolbar.ui.theme
+package br.com.raqfc.compose_components.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

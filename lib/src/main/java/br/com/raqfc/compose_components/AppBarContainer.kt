@@ -20,7 +20,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package me.onebone.toolbar
+package br.com.raqfc.compose_components
 
 import androidx.compose.foundation.gestures.ScrollableDefaults
 import androidx.compose.runtime.Composable
@@ -46,7 +46,7 @@ import kotlin.math.roundToInt
 	"Use AppBarContainer for naming consistency",
 	replaceWith = ReplaceWith(
 		"AppBarContainer(modifier, scrollStrategy, collapsingToolbarState, content)",
-		"me.onebone.toolbar"
+		"br.com.raqfc.compose_components"
 	)
 )
 @Composable
@@ -68,7 +68,7 @@ fun AppbarContainer(
 	"AppBarContainer is replaced with CollapsingToolbarScaffold",
 	replaceWith = ReplaceWith(
 		"CollapsingToolbarScaffold",
-		"me.onebone.toolbar"
+		"br.com.raqfc.compose_components"
 	)
 )
 @Composable

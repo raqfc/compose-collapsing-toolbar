@@ -20,7 +20,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package me.onebone.toolbar
+package br.com.raqfc.compose_components
 
 import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.runtime.MutableState

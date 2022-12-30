@@ -20,7 +20,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package me.onebone.toolbar
+package br.com.raqfc.compose_components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -39,6 +39,10 @@ import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.swipeUp
 import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import br.com.raqfc.compose_components.composables.scaffold.CollapsingToolbarScaffold
+import br.com.raqfc.compose_components.composables.scaffold.CollapsingToolbarScaffoldState
+import br.com.raqfc.compose_components.toolbar.CollapsingToolbarState
+import br.com.raqfc.compose_components.toolbar.ScrollStrategy
 import kotlin.math.abs
 import org.junit.Rule
 import org.junit.Test

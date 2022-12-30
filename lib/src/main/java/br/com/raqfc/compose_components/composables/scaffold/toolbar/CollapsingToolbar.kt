@@ -20,7 +20,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package me.onebone.toolbar
+package br.com.raqfc.compose_components.composables.scaffold.toolbar
 
 import androidx.annotation.FloatRange
 import androidx.compose.animation.core.AnimationState
@@ -30,24 +30,11 @@ import androidx.compose.foundation.MutatePriority
 import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.foundation.gestures.ScrollScope
 import androidx.compose.foundation.gestures.ScrollableState
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.calculateStartPadding
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
-import androidx.compose.ui.layout.Layout
-import androidx.compose.ui.layout.Measurable
-import androidx.compose.ui.layout.MeasurePolicy
-import androidx.compose.ui.layout.MeasureResult
-import androidx.compose.ui.layout.MeasureScope
-import androidx.compose.ui.layout.ParentDataModifier
-import androidx.compose.ui.layout.Placeable
+import androidx.compose.ui.layout.*
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
@@ -138,7 +125,6 @@ class CollapsingToolbarState(
 	)
 	fun feedScroll(value: Float): Float = dispatchRawDelta(value)
 
-	@ExperimentalToolbarApi
 	suspend fun expand(duration: Int = 200) {
 		val anim = AnimationState(height.toFloat())
 
@@ -151,7 +137,6 @@ class CollapsingToolbarState(
 		}
 	}
 
-	@ExperimentalToolbarApi
 	suspend fun collapse(duration: Int = 200) {
 		val anim = AnimationState(height.toFloat())
 

@@ -20,23 +20,20 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package me.onebone.toolbar
+package br.com.raqfc.compose_components
 
-import ActionItem
-import ActionMenu
+import br.com.raqfc.compose_components.toolbar.ActionItem
+import br.com.raqfc.compose_components.toolbar.ActionMenu
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Delete
@@ -55,7 +52,12 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import me.onebone.toolbar.ui.theme.CollapsingToolbarTheme
+import br.com.raqfc.compose_components.composables.scaffold.CollapsingToolbarScaffold
+import br.com.raqfc.compose_components.toolbar.OverflowMode
+import br.com.raqfc.compose_components.toolbar.ScrollStrategy
+import br.com.raqfc.compose_components.toolbar.ViewConfiguration
+import br.com.raqfc.compose_components.composables.scaffold.rememberCollapsingToolbarScaffoldState
+import br.com.raqfc.compose_components.ui.theme.CollapsingToolbarTheme
 
 class MainActivity: ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {

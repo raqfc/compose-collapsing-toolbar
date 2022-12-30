@@ -1,4 +1,4 @@
-package br.com.justworks.volan2.common.presentation
+package br.com.raqfc.compose_components.state
 
 abstract class BaseState<T: BaseState<T>> {
 

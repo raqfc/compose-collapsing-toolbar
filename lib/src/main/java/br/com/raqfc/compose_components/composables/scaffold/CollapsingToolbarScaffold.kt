@@ -74,7 +74,7 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import br.com.justworks.volan2.common.presentation.BaseUiEvent
+import br.com.raqfc.compose_components.state.event.BaseUiEvent
 import br.com.justworks.volan2.common.presentation.composables.dialog.CustomAlertDialog
 import br.com.raqfc.compose_components.composables.scaffold.toolbar.CollapsingToolbar
 import br.com.raqfc.compose_components.composables.scaffold.toolbar.CollapsingToolbarScope
@@ -132,7 +132,7 @@ fun CollapsingToolbarScaffold(
 	showUpButton: Boolean = true,
 	upIcon: ImageVector = Icons.Default.ArrowBack,
 	title: String? = null,
-	@StringRes titleRes: Int,
+	@StringRes titleRes: Int? = null,
 	actions: List<ActionItem> = listOf(),
 	onUpClicked: () -> Unit = {},
 	toolbar: (@Composable CollapsingToolbarScope.() -> Unit)? = null,
@@ -215,7 +215,7 @@ fun CollapsingToolbarScaffold(
                     }
 
                     Text(
-                        text = title ?: stringResource(id = titleRes),
+                        text = title ?: if(titleRes != null) stringResource(id = titleRes) else "",
                         modifier = Modifier
                             .road(
                                 ViewConfiguration(Alignment.CenterStart, 120.dp),

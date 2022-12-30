@@ -23,7 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import br.com.justworks.volan2.common.presentation.BaseUiEvent
+import br.com.raqfc.compose_components.state.event.BaseUiEvent
 import br.com.justworks.volan2.common.presentation.composables.dialog.CustomAlertDialog
 import br.com.raqfc.compose_components.R
 import br.com.raqfc.compose_components.composables.dialog.ProgressDialog
@@ -32,23 +32,23 @@ import br.com.raqfc.compose_components.composables.scaffold.toolbar.ViewConfigur
 
 @Composable
 fun BaseScaffold(
-    modifier: Modifier = Modifier,
-    showBackButton: Boolean = true,
-    @StringRes titleRes: Int,
-    actions: List<ActionItem> = listOf(),
-    onUpClicked: () -> Unit = {},
-    showDefaultAppBar: Boolean = true,
-    topBar: (@Composable () -> Unit) = {},
-    bottomBar: @Composable () -> Unit = {},
-    snackbarHost: @Composable (SnackbarHostState) -> Unit = { },
-    floatingActionButton: @Composable () -> Unit = {},
-    floatingActionButtonPosition: FabPosition = FabPosition.End,
-    backgroundColor: Color = MaterialTheme.colors.background,
-    contentColor: Color = contentColorFor(backgroundColor),
+	modifier: Modifier = Modifier,
+	showBackButton: Boolean = true,
+	@StringRes titleRes: Int,
+	actions: List<ActionItem> = listOf(),
+	onUpClicked: () -> Unit = {},
+	showDefaultAppBar: Boolean = true,
+	topBar: (@Composable () -> Unit) = {},
+	bottomBar: @Composable () -> Unit = {},
+	snackbarHost: @Composable (SnackbarHostState) -> Unit = { },
+	floatingActionButton: @Composable () -> Unit = {},
+	floatingActionButtonPosition: FabPosition = FabPosition.End,
+	backgroundColor: Color = MaterialTheme.colors.background,
+	contentColor: Color = contentColorFor(backgroundColor),
 
-    uiEvents: BaseUiEvent?,
+	uiEvents: BaseUiEvent?,
 
-    content: @Composable (PaddingValues) -> Unit
+	content: @Composable (PaddingValues) -> Unit
 ) {
     var mUiEvent by remember { mutableStateOf(uiEvents) }
     //todo descobrir erro interno da variavel

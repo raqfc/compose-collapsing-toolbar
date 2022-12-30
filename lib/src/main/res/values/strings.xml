@@ -7,5 +7,14 @@
     <string name="default_error_content">Ocorreu um erro inesperado</string>
     <string name="default_loading">Carregando</string>
 
+    <string name="content_description_avatar_image">Imagem de avatar</string>
+
+    <!--  Default fields hint  -->
+    <string name="dialog_select_option">Selecione uma opção</string>
+    <string name="default_hint">Preencha</string>
+    <string name="default_validation_error_message">Campo inválido</string>
+    <string name="default_empty_error_message">Não pode ser vazio</string>
+
+
 
 </resources>

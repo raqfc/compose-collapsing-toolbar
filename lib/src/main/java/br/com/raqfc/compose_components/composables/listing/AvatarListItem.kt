@@ -1,10 +1,9 @@
-package br.com.justworks.volan2.common.presentation.composables.listing
+package br.com.raqfc.compose_components.composables.listing
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import br.com.raqfc.compose_components.composables.listing.BaseListItem
 
 @Composable
 fun AvatarListItem(

@@ -1,6 +1,7 @@
-package br.com.justworks.volan2.common.presentation.composables.listing
+package br.com.raqfc.compose_components.composables.listing
 
 import androidx.annotation.DrawableRes
+import androidx.annotation.RawRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -18,8 +19,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import br.com.justworks.volan2.R
-import br.com.justworks.volan2.ui.theme.AppTheme
+import br.com.raqfc.compose_components.R
+import br.com.raqfc.compose_components.theme.AppTheme
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.airbnb.lottie.compose.LottieAnimation
@@ -101,9 +102,10 @@ private fun CircleImageView(
 
 @Composable
 private fun AnimatedCheck(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    @RawRes lottieAnimationFile: Int = R.raw.animated_check_lottie
 ) {
-    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.animated_check_lottie))
+    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(lottieAnimationFile))
     LottieAnimation(
         modifier = modifier,
         composition = composition,

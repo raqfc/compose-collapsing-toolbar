@@ -20,7 +20,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package br.com.justworks.volan2.common.presentation.composables.scaffold.toolbar
+package br.com.raqfc.compose_components.composables.scaffold.toolbar
 
 import androidx.compose.foundation.gestures.ScrollableDefaults
 import androidx.compose.runtime.Composable
@@ -33,7 +33,6 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.*
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Density
-import br.com.raqfc.compose_components.composables.scaffold.toolbar.CollapsingToolbarState
 import kotlin.math.max
 
 @Deprecated(

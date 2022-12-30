@@ -20,7 +20,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package br.com.justworks.volan2.common.presentation.composables.scaffold.toolbar
+package br.com.raqfc.compose_components.composables.scaffold.toolbar
 
 import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.runtime.MutableState
@@ -28,10 +28,6 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.unit.Velocity
-import br.com.raqfc.compose_components.composables.scaffold.toolbar.CollapsingToolbarState
-import br.com.raqfc.compose_components.composables.scaffold.toolbar.CurrentTimeProviderImpl
-import br.com.raqfc.compose_components.composables.scaffold.toolbar.RelativeVelocityTracker
-import br.com.raqfc.compose_components.composables.scaffold.toolbar.deriveDelta
 
 enum class ScrollStrategy {
 	EnterAlways {

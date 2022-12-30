@@ -79,10 +79,9 @@ import br.com.justworks.volan2.common.presentation.composables.dialog.CustomAler
 import br.com.raqfc.compose_components.composables.scaffold.toolbar.CollapsingToolbar
 import br.com.raqfc.compose_components.composables.scaffold.toolbar.CollapsingToolbarScope
 import br.com.raqfc.compose_components.composables.scaffold.toolbar.CollapsingToolbarState
-import br.com.justworks.volan2.common.presentation.composables.scaffold.toolbar.ScrollStrategy
+import br.com.raqfc.compose_components.composables.scaffold.toolbar.ScrollStrategy
 import br.com.raqfc.compose_components.composables.scaffold.toolbar.ViewConfiguration
 import br.com.raqfc.compose_components.composables.scaffold.toolbar.rememberCollapsingToolbarState
-import br.com.raqfc.compose_components.R
 import br.com.raqfc.compose_components.composables.dialog.ProgressDialog
 import kotlin.math.max
 
@@ -127,29 +126,29 @@ interface CollapsingToolbarScaffoldScope {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun CollapsingToolbarScaffold(
-    modifier: Modifier = Modifier,
-    toolbarModifier: Modifier = Modifier,
+	modifier: Modifier = Modifier,
+	toolbarModifier: Modifier = Modifier,
 
-    showUpButton: Boolean = true,
-    upIcon: ImageVector = Icons.Default.ArrowBack,
-    title: String? = null,
-    @StringRes titleRes: Int,
-    actions: List<ActionItem> = listOf(),
-    onUpClicked: () -> Unit = {},
-    toolbar: (@Composable CollapsingToolbarScope.() -> Unit)? = null,
-    bottomBar: (@Composable () -> Unit)? = null,
-    snackbarHost: @Composable (SnackbarHostState) -> Unit = { },
-    floatingActionButton: (@Composable () -> Unit)? = null,
-    floatingActionButtonPosition: FabPosition = FabPosition.End,
-    backgroundColor: Color = MaterialTheme.colors.background,
-    contentColor: Color = contentColorFor(backgroundColor),
+	showUpButton: Boolean = true,
+	upIcon: ImageVector = Icons.Default.ArrowBack,
+	title: String? = null,
+	@StringRes titleRes: Int,
+	actions: List<ActionItem> = listOf(),
+	onUpClicked: () -> Unit = {},
+	toolbar: (@Composable CollapsingToolbarScope.() -> Unit)? = null,
+	bottomBar: (@Composable () -> Unit)? = null,
+	snackbarHost: @Composable (SnackbarHostState) -> Unit = { },
+	floatingActionButton: (@Composable () -> Unit)? = null,
+	floatingActionButtonPosition: FabPosition = FabPosition.End,
+	backgroundColor: Color = MaterialTheme.colors.background,
+	contentColor: Color = contentColorFor(backgroundColor),
 
-    uiEvents: BaseUiEvent? = null,
+	uiEvents: BaseUiEvent? = null,
 
-    state: CollapsingToolbarScaffoldState,
-    scrollStrategy: ScrollStrategy = ScrollStrategy.ExitUntilCollapsed,
-    enabled: Boolean = true,
-    body: @Composable CollapsingToolbarScaffoldScope.() -> Unit
+	state: CollapsingToolbarScaffoldState,
+	scrollStrategy: ScrollStrategy = ScrollStrategy.ExitUntilCollapsed,
+	enabled: Boolean = true,
+	body: @Composable CollapsingToolbarScaffoldScope.() -> Unit
 ) {
     val flingBehavior = ScrollableDefaults.flingBehavior()
     val layoutDirection = LocalLayoutDirection.current

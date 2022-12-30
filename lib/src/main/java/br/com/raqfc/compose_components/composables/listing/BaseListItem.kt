@@ -1,14 +1,17 @@
 package br.com.raqfc.compose_components.composables.listing
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.CardDefaults.cardColors
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import br.com.raqfc.compose_components.theme.AppTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 @Preview
 fun BaseListItem(
@@ -17,14 +20,14 @@ fun BaseListItem(
     onClick: () -> Unit = {},
     content: @Composable RowScope.() -> Unit = {}
 ) {
-    Card(
+    androidx.compose.material3.Card(
         modifier = Modifier
             .fillMaxWidth()
             .then(modifier),
         onClick = onClick,
         colors = cardColors(
             //todo selection color
-            containerColor = if (checked) Color.Black.copy(alpha = 0.4f) else MaterialTheme.colors.surfaceColorAtElevation(
+            containerColor = if (checked) Color.Black.copy(alpha = 0.4f) else androidx.compose.material3.MaterialTheme.colorScheme.surfaceColorAtElevation(
                 AppTheme.dimensions.elevation1
             )
         )

@@ -1,4 +1,4 @@
-package br.com.justworks.volan2.common.presentation.composables
+package br.com.raqfc.compose_components.composables
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource

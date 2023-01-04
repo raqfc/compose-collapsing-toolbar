@@ -15,6 +15,11 @@
     <string name="default_validation_error_message">Campo inválido</string>
     <string name="default_empty_error_message">Não pode ser vazio</string>
 
+    <!-- ErrorInformation   -->
+    <string name="error_information_default_content_description">Alerta de erro</string>
+    <string name="error_information_title">Ops </string>
+    <string name="error_information_content">Ocorreu um erro ao processar sua requisição</string>
+    <string name="try_again">Tentar novamente</string>
 
 
 </resources>

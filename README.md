@@ -1,3 +1,6 @@
+# Compose components
+[![](https://jitpack.io/v/raqfc/compose_components.svg)](https://jitpack.io/#raqfc/compose_components)
+
 # compose-collapsing-toolbar
 A simple implementation of [CollapsingToolbarLayout](https://developer.android.com/reference/com/google/android/material/appbar/CollapsingToolbarLayout) for Jetpack Compose
 

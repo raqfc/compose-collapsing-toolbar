@@ -22,7 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import br.com.justworks.volan2.common.presentation.composables.animations.Transitions
+import br.com.raqfc.compose_components.composables.animations.Transitions
 import br.com.raqfc.compose_components.theme.AppTheme
 
 @Composable

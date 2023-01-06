@@ -1,4 +1,4 @@
-package br.com.justworks.volan2.common.presentation.text_input_transformation
+package br.com.raqfc.compose_components.text_input_transformation
 
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.input.OffsetMapping

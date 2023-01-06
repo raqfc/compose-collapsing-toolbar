@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Collapsing Toolbar</string>
+    <string name="app_name">Compose Components</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_parallax">ParallaxActivity</string>
 

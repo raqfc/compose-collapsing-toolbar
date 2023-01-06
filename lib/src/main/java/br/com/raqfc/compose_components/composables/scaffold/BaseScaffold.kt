@@ -117,7 +117,7 @@ fun BaseScaffold(
             is BaseUiEvent.ShowError -> {
                 (mUiEvent as BaseUiEvent.ShowError).let { e ->
                     CustomAlertDialog(
-                        content = e.error.errorMessage(),
+//                        content = e.error.errorMessage(),
                         onClick = {
                             e.onClick()
                             mUiEvent = null

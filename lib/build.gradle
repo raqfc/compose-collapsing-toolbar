@@ -76,7 +76,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.raqfc'
             artifactId = 'compose_components'
-            version = '0.0.0'
+            version = '0.0.1beta6'
 
             afterEvaluate {
                 from components.release

@@ -24,7 +24,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import br.com.justworks.volan2.common.presentation.text_input_transformation.MaskVisualTransformation
+import br.com.raqfc.compose_components.text_input_transformation.MaskVisualTransformation
 import br.com.raqfc.compose_components.state.TextFieldState
 
 @OptIn(ExperimentalMaterial3Api::class)

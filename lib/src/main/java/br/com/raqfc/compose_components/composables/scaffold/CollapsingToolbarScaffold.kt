@@ -75,7 +75,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.com.raqfc.compose_components.state.event.BaseUiEvent
-import br.com.justworks.volan2.common.presentation.composables.dialog.CustomAlertDialog
+import br.com.raqfc.compose_components.composables.dialog.CustomAlertDialog
 import br.com.raqfc.compose_components.composables.scaffold.toolbar.CollapsingToolbar
 import br.com.raqfc.compose_components.composables.scaffold.toolbar.CollapsingToolbarScope
 import br.com.raqfc.compose_components.composables.scaffold.toolbar.CollapsingToolbarState

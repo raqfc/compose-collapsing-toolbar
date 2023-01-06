@@ -1,11 +1,11 @@
-package br.com.justworks.volan2.common.presentation.composables.dialog
+package br.com.raqfc.compose_components.composables.dialog
 
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import br.com.justworks.volan2.R
+import br.com.raqfc.compose_components.R
 
 @Composable
 fun CustomAlertDialog(

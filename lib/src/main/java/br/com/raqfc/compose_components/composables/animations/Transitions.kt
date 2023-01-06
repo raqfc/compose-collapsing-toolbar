@@ -1,4 +1,4 @@
-package br.com.justworks.volan2.common.presentation.composables.animations
+package br.com.raqfc.compose_components.composables.animations
 
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition

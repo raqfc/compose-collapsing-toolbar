@@ -39,7 +39,7 @@ import kotlin.math.max
 	"Use AppBarContainer for naming consistency",
 	replaceWith = ReplaceWith(
 		"AppBarContainer(modifier, scrollStrategy, collapsingToolbarState, content)",
-		"me.onebone.toolbar"
+		"br.com.raqfc.compose_components"
 	)
 )
 @Composable

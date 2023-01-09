@@ -1,4 +1,4 @@
-package br.com.raqfc.compose_components.ui.theme
+package br.com.raqfc.compose_componentsapp.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

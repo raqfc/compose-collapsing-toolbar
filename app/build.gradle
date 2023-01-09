@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "br.com.raqfc.compose_components"
+        applicationId "br.com.raqfc.compose_componentsapp"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode 1

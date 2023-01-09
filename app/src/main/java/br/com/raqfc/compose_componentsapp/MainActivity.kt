@@ -20,7 +20,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package br.com.raqfc.compose_components
+package br.com.raqfc.compose_componentsapp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -29,7 +29,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import br.com.raqfc.compose_components.ui.theme.CollapsingToolbarTheme
+import br.com.raqfc.compose_componentsapp.ui.theme.CollapsingToolbarTheme
 
 class MainActivity: ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {

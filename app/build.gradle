@@ -39,7 +39,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion compose_compiler_version
     }
-    namespace 'br.com.raqfc.compose_components'
+    namespace 'br.com.raqfc.compose_componentsapp'
 }
 
 dependencies {
